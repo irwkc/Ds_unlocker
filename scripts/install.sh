@@ -31,28 +31,7 @@ install_brew() {
 
 brew_install_pkgs() {
   say "${Y}Ставлю зависимости через brew...${X}"
-  brew install cloudflare-warp git gnu-sed gawk coreutils || true
-}
-
-setup_warp() {
-  say "${Y}Настраиваю WARP...${X}"
-  local WARP=warp-cli
-  command -v /opt/homebrew/bin/warp-cli >/dev/null 2>&1 && WARP=/opt/homebrew/bin/warp-cli
-  command -v /usr/local/bin/warp-cli >/dev/null 2>&1 && WARP=/usr/local/bin/warp-cli
-  
-  if ! command -v "$WARP" >/dev/null 2>&1; then
-    say "${R}warp-cli не найден. Установите Homebrew и cloudflare-warp под обычным пользователем.${X}"
-    exit 1
-  fi
-  
-  # Регистрируем устройство (без sudo)
-  say "${Y}Регистрирую устройство в WARP...${X}"
-  "$WARP" registration new || true
-  
-  # Устанавливаем режим и подключаемся (с sudo)
-  say "${Y}Включаю WARP...${X}"
-  sudo "$WARP" mode warp || true
-  sudo "$WARP" connect || true
+  brew install git gnu-sed gawk coreutils || true
 }
 
 main() {
@@ -60,8 +39,7 @@ main() {
   install_xcode_clt
   install_brew
   brew_install_pkgs
-  setup_warp
-  say "${G}Готово. Cloudflare WARP установлен и включен. Используй scripts/ctl.sh для управления.${X}"
+  say "${G}Готово. Зависимости установлены.${X}"
 }
 
 main "$@"
