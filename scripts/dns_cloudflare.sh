@@ -6,13 +6,13 @@ log(){ printf "%b\n" "$1"; }
 
 log "${Y}=== Настройка DNS Cloudflare ===${X}"
 
-# Получаем активный интерфейс
-INTERFACE=$(route get default | grep interface | awk '{print $2}')
-log "${Y}Активный интерфейс: $INTERFACE${X}"
+# Получаем активный интерфейс Wi-Fi
+INTERFACE="Wi-Fi"
+log "${Y}Использую интерфейс: $INTERFACE${X}"
 
 # Устанавливаем DNS Cloudflare
 log "${Y}Устанавливаю DNS Cloudflare...${X}"
-sudo networksetup -setdnsservers "$INTERFACE" 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+sudo networksetup -setdnsservers "$INTERFACE" 1.1.1.1 1.0.0.1
 
 # Очищаем кеш DNS
 log "${Y}Очищаю кеш DNS...${X}"
