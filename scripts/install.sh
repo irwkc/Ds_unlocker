@@ -8,12 +8,6 @@ say() { printf "%b\n" "$1"; }
 
 die() { say "${R}ERR:${X} $1"; exit 1; }
 
-require_root() {
-  if [[ "${EUID:-$(id -u)}" -ne 0 ]]; then
-    die "Требуются права sudo. Запусти: sudo $0"
-  fi
-}
-
 need_cmd() { command -v "$1" >/dev/null 2>&1; }
 
 install_xcode_clt() {
@@ -42,17 +36,22 @@ brew_install_pkgs() {
 
 setup_warp() {
   say "${Y}Включаю WARP (без Zero Trust).${X}"
-  /usr/local/bin/warp-cli --version >/dev/null 2>&1 || /opt/homebrew/bin/warp-cli --version >/dev/null 2>&1 || true
   local WARP=warp-cli
   command -v /opt/homebrew/bin/warp-cli >/dev/null 2>&1 && WARP=/opt/homebrew/bin/warp-cli
   command -v /usr/local/bin/warp-cli >/dev/null 2>&1 && WARP=/usr/local/bin/warp-cli
-  $WARP set-mode warp || true
-  $WARP register || true
-  $WARP connect || true
+  
+  if ! command -v "$WARP" >/dev/null 2>&1; then
+    say "${R}warp-cli не найден. Установите Homebrew и cloudflare-warp под обычным пользователем.${X}"
+    exit 1
+  fi
+  
+  sudo "$WARP" set-mode warp || true
+  sudo "$WARP" register || true
+  sudo "$WARP" connect || true
 }
 
 main() {
-  require_root
+  # Не требуем root для установки зависимостей
   install_xcode_clt
   install_brew
   brew_install_pkgs
