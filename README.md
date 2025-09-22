@@ -4,6 +4,13 @@
 
 ## Быстрый старт
 
+### Автозапуск (опционально)
+
+```bash
+$HOME/Desktop/Ds_unlocker/scripts/autostart_install.sh
+```
+
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/irwkc/Ds_unlocker/main/scripts/auto.sh | bash
 ```
