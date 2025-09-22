@@ -17,8 +17,9 @@ rm -rf zapret-mac
 git clone https://github.com/bol-van/zapret.git zapret-mac
 cd zapret-mac
 
-# Используем готовый бинарник для macOS
+# Удаляем директорию tpws и скачиваем бинарник
 log "${Y}Скачиваю готовый бинарник для macOS...${X}"
+rm -rf tpws
 curl -L -o tpws https://github.com/bol-van/zapret/releases/download/2024.12.19/tpws-macos
 chmod +x tpws
 
