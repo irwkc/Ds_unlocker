@@ -4,20 +4,19 @@
 
 ## Быстрый старт
 
-### Автозапуск (опционально)
+**Самый простой способ:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/irwkc/Ds_unlocker/main/scripts/quick.sh | bash
+```
 
+**Альтернатива (если первая не работает):**
+```bash
+git clone https://github.com/irwkc/Ds_unlocker.git && cd Ds_unlocker && sudo bash scripts/auto.sh
+```
+
+### Автозапуск (опционально)
 ```bash
 $HOME/Desktop/Ds_unlocker/scripts/autostart_install.sh
-```
-
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/irwkc/Ds_unlocker/main/scripts/auto.sh | bash
-```
-
-Локально из клонированного репо:
-```bash
-sudo "$HOME/Desktop/Ds_unlocker/scripts/auto.sh"
 ```
 
 ## Ручные команды (если нужно)
