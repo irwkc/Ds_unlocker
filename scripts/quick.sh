@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Пробую Tor для Discord...${X}"
-bash scripts/tor_discord.sh
+log "${Y}Пробую Cloudflare Tunnel...${X}"
+bash scripts/cloudflare_tunnel.sh
 
 log "${G}Готово! Discord должен работать.${X}"
