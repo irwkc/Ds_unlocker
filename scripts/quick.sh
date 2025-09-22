@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Настраиваю zapret для Discord...${X}"
-bash scripts/zapret_mac.sh
+log "${Y}Настраиваю DNS Cloudflare...${X}"
+bash scripts/no_sudo_dns.sh
 
 log "${G}Готово! Discord должен работать.${X}"
