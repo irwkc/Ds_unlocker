@@ -35,7 +35,7 @@ brew_install_pkgs() {
 }
 
 setup_warp() {
-  say "${Y}Включаю WARP (без Zero Trust).${X}"
+  say "${Y}Настраиваю WARP...${X}"
   local WARP=warp-cli
   command -v /opt/homebrew/bin/warp-cli >/dev/null 2>&1 && WARP=/opt/homebrew/bin/warp-cli
   command -v /usr/local/bin/warp-cli >/dev/null 2>&1 && WARP=/usr/local/bin/warp-cli
@@ -45,6 +45,12 @@ setup_warp() {
     exit 1
   fi
   
+  # Регистрируем устройство (без sudo)
+  say "${Y}Регистрирую устройство в WARP...${X}"
+  "$WARP" registration new || true
+  
+  # Устанавливаем режим и подключаемся (с sudo)
+  say "${Y}Включаю WARP...${X}"
   sudo "$WARP" mode warp || true
   sudo "$WARP" connect || true
 }
