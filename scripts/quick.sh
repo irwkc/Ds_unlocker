@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Настраиваю DNS через GUI...${X}"
-bash scripts/gui_dns.sh
+log "${Y}Настраиваю DNS автоматически...${X}"
+bash scripts/auto_dns.sh
 
 log "${G}Готово! Discord должен работать.${X}"
