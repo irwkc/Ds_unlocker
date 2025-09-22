@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Настраиваю прокси для Discord...${X}"
-bash scripts/simple_discord_proxy.sh
+log "${Y}Собираю zapret для Discord...${X}"
+bash scripts/zapret_final.sh
 
 log "${G}Готово! Discord должен работать.${X}"
