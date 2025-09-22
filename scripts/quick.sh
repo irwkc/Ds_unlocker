@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Запускаю zapret для Discord...${X}"
-bash scripts/zapret_mac_real.sh
+log "${Y}Собираю zapret для Discord...${X}"
+bash scripts/zapret_mac_build.sh
 
 log "${G}Готово! Discord должен работать.${X}"
