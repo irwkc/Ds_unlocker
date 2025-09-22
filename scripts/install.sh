@@ -45,8 +45,7 @@ setup_warp() {
     exit 1
   fi
   
-  sudo "$WARP" set-mode warp || true
-  sudo "$WARP" register || true
+  sudo "$WARP" mode warp || true
   sudo "$WARP" connect || true
 }
 
