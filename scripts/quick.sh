@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Открываю веб-версию Discord...${X}"
-bash scripts/web_discord.sh
+log "${Y}Оживляю десктопную версию Discord...${X}"
+bash scripts/desktop_discord.sh
 
-log "${G}Готово! Discord открыт в браузере.${X}"
+log "${G}Готово! Discord должен работать.${X}"
