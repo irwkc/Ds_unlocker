@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Пробую HTTP прокси...${X}"
-bash scripts/http_proxy.sh
+log "${Y}Открываю веб-версию Discord...${X}"
+bash scripts/web_discord.sh
 
-log "${G}Готово! Discord должен работать.${X}"
+log "${G}Готово! Discord открыт в браузере.${X}"
