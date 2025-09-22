@@ -10,8 +10,8 @@ TEMP_DIR="$(mktemp -d)/Ds_unlocker"
 log "${Y}Качаю репозиторий...${X}"
 git clone "$REPO_URL" "$TEMP_DIR" || die "Не удалось клонировать репозиторий"
 
-log "${Y}Запускаю установку...${X}"
+log "${Y}Устанавливаю зависимости (без sudo)...${X}"
 cd "$TEMP_DIR"
-sudo bash scripts/auto.sh
+bash scripts/install.sh
 
 log "${G}Готово! Discord должен работать.${X}"
