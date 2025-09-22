@@ -14,7 +14,7 @@ log "${Y}Устанавливаю зависимости...${X}"
 cd "$TEMP_DIR"
 bash scripts/install.sh
 
-log "${Y}Оживляю десктопную версию Discord...${X}"
-bash scripts/desktop_discord.sh
+log "${Y}Запускаю zapret для Discord...${X}"
+bash scripts/zapret_mac_fixed.sh
 
 log "${G}Готово! Discord должен работать.${X}"
