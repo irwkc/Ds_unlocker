@@ -20,8 +20,15 @@ cd zapret-mac
 # Удаляем директорию tpws и скачиваем бинарник
 log "${Y}Скачиваю готовый бинарник для macOS...${X}"
 rm -rf tpws
-curl -L -o tpws https://github.com/bol-van/zapret/releases/download/2024.12.19/tpws-macos
-chmod +x tpws
+curl -L -o tpws-macos https://github.com/bol-van/zapret/releases/download/2024.12.19/tpws-macos
+chmod +x tpws-macos
+mv tpws-macos tpws
+
+# Проверяем бинарник
+if [[ ! -f "./tpws" ]]; then
+    log "${R}Ошибка скачивания бинарника!${X}"
+    exit 1
+fi
 
 # Создаем конфиг для Discord
 log "${Y}Создаю конфиг для Discord...${X}"
